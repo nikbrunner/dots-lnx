@@ -37,7 +37,9 @@ Initial pull from remote
 df pull origin main
 ```
 
-# Update dotfiles
+Update dotfiles
+
+```sh
 # TODO push.sh --dots 
 ```
 

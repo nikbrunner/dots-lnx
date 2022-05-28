@@ -31,8 +31,10 @@ Add remote repo
 
 ```sh
 df remote add origin git@github.com:nikbrunner/dots-lnx.git
+```
 
 Initial pull from remote 
+
 ```sh
 df pull origin main
 ```

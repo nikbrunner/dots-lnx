@@ -18,22 +18,16 @@ alias df='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 df config --local status.showUntrackedFiles no
 
 # Add remote repo
-df remote add origin git@github.com:nikbrunner/dotfiles.git
+df remote add origin git@github.com:nikbrunner/dots-lnx.git
 
 # Initial pull from remote 
-df pull origin master
+df pull origin main
 
 # Basic usage example:
-push.sh --dots
+# push.sh --dots 
 ```
-
-## Homebrew
-
-Run `brew bundle` from the location folder of the `Brewfile` to install apps
 
 ## NeoVim
 
-For my [NeoVim](https://github.com/nikbrunner/nibru.nvim) setup I have a dedicated repository, which is declared in this repository as a submodule, **but** needs to be cloned seperately.
-
-> Also remember to install `ripgrep` and `fzf`
+For my [NeoVim](https://github.com/nikbrunner/nibru.nvim) setup I have a dedicated repository, which is declared in this repository as a submodule, **but** needs to be cloned seperately
 

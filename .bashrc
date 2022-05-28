@@ -1,3 +1,4 @@
+
 #
 # ~/.bashrc
 #
@@ -85,5 +86,11 @@ _open_files_for_editing() {
 # alias ef='_open_files_for_editing'     # 'ef' opens given file(s) for editing
 # alias pacdiff=eos-pacdiff
 ################################################################################
+
+
+### ALREADY CUSTOM ADDED
+alias df='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
+export EDITOR=nvim
 
 source /usr/share/nvm/init-nvm.sh

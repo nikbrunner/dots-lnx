@@ -1,20 +1,20 @@
 new_tab Home
 cd ~
-launch zsh
+launch bash
 focus
 
 new_tab Git
 cd ~
-launch zsh
+launch bash
 
 new_tab Run
 cd ~
-launch zsh
+launch bash
 
 new_tab Storybook
 cd ~
-launch zsh
+launch bash
 
 new_tab Tests
 cd ~
-launch zsh
+launch bash

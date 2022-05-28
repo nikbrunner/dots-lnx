@@ -1,0 +1,5 @@
+[user]
+	email = nikolaus.brunner@protonmail.ch
+	name = Nikolaus Brunner
+[core]
+	editor = nvim

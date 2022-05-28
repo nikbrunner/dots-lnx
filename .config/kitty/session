@@ -1,0 +1,20 @@
+new_tab Home
+cd ~
+launch zsh
+focus
+
+new_tab Git
+cd ~
+launch zsh
+
+new_tab Run
+cd ~
+launch zsh
+
+new_tab Storybook
+cd ~
+launch zsh
+
+new_tab Tests
+cd ~
+launch zsh

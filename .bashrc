@@ -88,9 +88,5 @@ _open_files_for_editing() {
 ################################################################################
 
 
-### ALREADY CUSTOM ADDED
-alias df='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+exec zsh
 
-export EDITOR=nvim
-
-source /usr/share/nvm/init-nvm.sh

@@ -1,3 +1,4 @@
+1password
 accountsservice
 acpi
 adobe-source-han-sans-cn-fonts
@@ -172,6 +173,7 @@ ntp
 numlockx
 nvidia-dkms
 nvidia-installer-dkms
+nvm
 obsidian
 openconnect
 openvpn
@@ -212,6 +214,7 @@ sed
 sg3_utils
 smartmontools
 sof-firmware
+spaceship-prompt-git
 splix
 sshfs
 sudo
@@ -263,3 +266,5 @@ xterm
 yad-eos
 yay
 zsh
+zsh-vi-mode
+zsh-z-git

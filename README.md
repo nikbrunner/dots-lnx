@@ -66,6 +66,8 @@ pacman -S --needed - < package_list.txt
   - `yay spaceship-prompt`
 - [zsh Vi Mode](https://github.com/jeffreytse/zsh-vi-mode)
   - `yay zsh-vi-mode`
+- [zsh z](https://github.com/agkozak/zsh-z)
+  - `yay zsh-z`
 
 ## NeoVim 
 

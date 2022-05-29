@@ -386,13 +386,13 @@ exec --no-startup-id dbus-launch dunst --config ~/.config/dunst/dunstrc
 # you need to have tray apps started manually one by one:
 
 # start blueberry app for managing bluetooth devices from tray:
-#exec --no-startup-id blueberry-tray
+exec --no-startup-id blueberry-tray
 
 # networkmanager-applet
 #exec --no-startup-id nm-applet
 
 # clipman-applet
-#exec --no-startup-id xfce4-clipman
+exec --no-startup-id xfce4-clipman
 
 ##################
 # floating rules #
@@ -474,27 +474,24 @@ client.urgent		            $pink_500	       $pink_400	     $gray_900	 $purple_40
 bar {
 		font pango: Noto Sans Regular 10
 		status_command i3blocks -c ~/.config/i3/i3blocks.conf
-	    	position bottom
-	    	# i3bar_command i3bar --transparency
-# it could be that you have no primary display set: set one (xrandr --output <output> --primary)
-# reference: https://i3wm.org/docs/userguide.html#_tray_output
-		    tray_output primary
-		    tray_padding 5px
-
-strip_workspace_numbers yes
-# strip_workspace_name no
+    position bottom
+    tray_output primary
+    tray_padding 5px
+    strip_workspace_numbers yes
+    # strip_workspace_name no
+    separator_symbol "  "
 
     colors {
 		    separator          $blue_400
 		    background         $blue_200
 		    statusline         $gray_800
 
-#   class                  border 		       bg		           text		     indicator
-		focused_workspace	     $blue_400	   	   $blue_400		   $cyan_500	 $blue_400
-		active_workspace	     $cyan_400      	 $cyan_400       $blue_600	 $pink_500
-		inactive_workspace	   $blue_300   		   $blue_300	     $blue_600	 $green_500
-		urgent_workspace	     $red_500	    	   $red_500	       $gray_900	 $red_500
-	}
+      # class                  border 		       bg		           text		     indicator
+		    focused_workspace	     $blue_400	   	   $blue_400		   $cyan_500	 $blue_400
+		    active_workspace	     $cyan_400      	 $cyan_400       $blue_600	 $pink_500
+		    inactive_workspace	   $blue_300   		   $blue_300	     $blue_600	 $green_500
+		    urgent_workspace	     $red_500	    	   $red_500	       $gray_900	 $red_500
+	  }
 }
 
 #####################################

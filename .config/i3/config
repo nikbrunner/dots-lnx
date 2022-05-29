@@ -458,23 +458,9 @@ set $yellow_400       #EBCB8B
 set $purple_400       #B48EAD
 set $purple_600       #DD99BB
 
-set $darkbluetrans	#5E81ACe6
-set $darkblue		    #81A1C1
-set $lightblue		  $blue_800
-set $urgentred		  #E44675
-set $green          #79B791
-set $white		      #ffffff
-set $black		      #000000
-set $purple		      #DD99BB
-set $darkgrey		    #273241
-set $grey		        #646A76
-set $mediumgrey		  #646A76
-set $yellowbrown	  #EBCB8B
-
-
 # define colors for windows:
 #class		        	        border		       bground		     text		     indicator	    child_border
-client.focused		          $blue_300	       $blue_200	     $gray_800	 $purple_600		$blue_400
+client.focused		          $blue_300	       $blue_200	     $gray_800	 $purple_600		$blue_600
 client.unfocused	          $blue_200	       $blue_200	     $gray_800	 $purple_400		$blue_200
 client.focused_inactive	    $blue_200	       $blue_200	     $blue_700	 $purple_400		$blue_200
 client.urgent		            $pink_500	       $pink_400	     $gray_900	 $purple_400		$purple_600
@@ -499,14 +485,14 @@ strip_workspace_numbers yes
 # strip_workspace_name no
 
     colors {
-		    separator          $purple_600
+		    separator          $blue_400
 		    background         $blue_200
 		    statusline         $gray_800
 
 #   class                  border 		       bg		           text		     indicator
-		focused_workspace	     $blue_400	   	   $blue_400		   $gray_800	 $blue_400
-		active_workspace	     $cyan_400      	 $cyan_400       $gray_800	 $pink_500
-		inactive_workspace	   $blue_300   		   $blue_300	     $blue_700	 $green_500
+		focused_workspace	     $blue_400	   	   $blue_400		   $cyan_500	 $blue_400
+		active_workspace	     $cyan_400      	 $cyan_400       $blue_600	 $pink_500
+		inactive_workspace	   $blue_300   		   $blue_300	     $blue_600	 $green_500
 		urgent_workspace	     $red_500	    	   $red_500	       $gray_900	 $red_500
 	}
 }

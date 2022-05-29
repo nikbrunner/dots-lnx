@@ -1,5 +1,77 @@
 [user]
-	email = nikolaus.brunner@protonmail.ch
-	name = Nikolaus Brunner
+  name = Nikolaus Brunner
+  email = nikolaus.brunner@protonmail.ch
+
+[init]
+  defaultBranch = main
+
+[branch]
+  remote = origin
+  rebase = true
+
 [core]
-	editor = nvim
+  editor = nvim
+
+# Comment: This is to unlock Visual Studio Code as your Git diff and Git merge tool
+[merge]
+  tool = vscode
+
+[mergetool "vscode"]
+  cmd = code --wait $MERGED
+
+[diff]
+  tool = vscode
+
+[difftool "vscode"]
+  cmd = code --wait --diff $LOCAL $REMOTE
+
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+
+[pager]
+  diff = delta
+  log = delta
+  reflog = delta
+  show = delta
+
+[interactive]
+  diffFilter = delta --color-only --features=interactive
+
+[delta]
+  side-by-side=true
+  wrap-max-lines=0
+
+[alias]
+  graph = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all -10
+  graphfull = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+  last = log -1 HEAD
+  root = rev-parse --show-toplevel
+  all = !git-all
+
+  dt = difftool
+  df = diff
+  dfm = diff origin/master HEAD
+
+  update = !git fetch --all --prune && git town prune-branches && [[ -z $(git status --porcelain) ]] && git pull --rebase
+  fullreset = !git fetch origin && git town prune-branches && git stash --include-untracked && git reset --hard "origin/$(git rev-parse --abbrev-ref HEAD)"
+
+  stashaway = !git stash --include-untracked
+  dustoff = !git town prune-branches
+  resethard = !git reset --hard "origin/$(git rev-parse --abbrev-ref HEAD)"
+  cleanup = !git fetch origin && git dustoff && git resethard
+
+  ; GitTown
+	append = town append
+	hack = town hack
+	kill = town kill
+	new-pull-request = town new-pull-request
+	prepend = town prepend
+	prune-branches = town prune-branches
+	rename-branch = town rename-branch
+	repo = town repo
+	ship = town ship
+	sync = town sync
+

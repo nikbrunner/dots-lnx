@@ -27,6 +27,8 @@ font pango: JetBrains Mono Regular Nerd Font Complete 12
 # set the mod key to the winkey:
 set $mod Mod4
 
+# border_radius 4
+
 #####################
 # workspace layout: #
 #####################
@@ -53,8 +55,8 @@ new_window pixel 3
 # hide_edge_borders both
 
 # Set inner/outer gaps
-gaps inner 20
-gaps outer 10
+gaps inner 15
+gaps outer 0
 
 # show window title bars (not officially supported with i3gaps)
 #default_border normal
@@ -141,30 +143,20 @@ bindcode $mod+Shift+80 	 move container to workspace  $ws8
 bindcode $mod+Shift+81 	 move container to workspace  $ws9
 bindcode $mod+Shift+90 	 move container to workspace  $ws10
 
-# resize window (you can also use the mouse for that):
+# Resize Mode
+bindsym $mod+r mode "resize"
+
 mode "resize" {
-# These bindings trigger as soon as you enter the resize mode
-# Pressing left will shrink the window's width.
-# Pressing right will grow the window's width.
-# Pressing up will shrink the window's height.
-# Pressing down will grow the window's height.
-#        bindsym j resize shrink width 10 px or 10 ppt
-#        bindsym k resize grow height 10 px or 10 ppt
-#        bindsym l resize shrink height 10 px or 10 ppt
-#        bindsym ntilde resize grow width 10 px or 10 ppt
+  # These bindings trigger as soon as you enter the resize mode
 
-# same bindings, but for the arrow keys
-#	bindsym Left resize shrink width 10 px or 10 ppt
-#        bindsym Down resize grow height 10 px or 10 ppt
-#        bindsym Up resize shrink height 10 px or 10 ppt
-#        bindsym Right resize grow width 10 px or 10 ppt
+  bindsym h resize shrink width 10 px or 10 ppt
+  bindsym k resize grow height 10 px or 10 ppt
+  bindsym j resize shrink height 10 px or 10 ppt
+  bindsym l resize grow width 10 px or 10 ppt
 
-# back to normal: Enter or Escape
-bindsym Return mode "default"
- # bindsym Escape mode "default"
+  bindsym Return mode "default"
 }
 
-#bindsym $mod+r mode "resize"
 
 ######################################
 # keybindings for different actions: #
@@ -314,29 +306,13 @@ for_window [class=TelegramDesktop] focus
 # compositor #
 ##############
 
-# transparency
-# uncomment one of them to be used (picom package is installed per default)
-# options could need changes, related to used GPU and drivers.
-# to find the right setting consult the archwiki or ask at the forum.
-#
-# xcompmgr: https://wiki.archlinux.org/title/Xcompmgr
-# manpage: https://man.archlinux.org/man/xcompmgr.1.en
-#exec --no-startup-id xcompmgr -C -n &
-# or an more specialized config like this:
-#exec --no-startup-id xcompmgr -c -C -t-5 -l-5 -r4.2 -o.55 &
-#
-# or:
-#
 # picom: https://wiki.archlinux.org/title/Picom
 # manpage: https://man.archlinux.org/man/picom.1.en
 # The default configuration is available in /etc/xdg/picom.conf 
 # For modifications, it can be copied to ~/.config/picom/picom.conf or ~/.config/picom.conf
 #
 # using default config 
-#exec_always --no-startup-id picom -b
-#
-# for custom config:
-#exec_always --no-startup-id picom --config  ~/.config/picom.conf
+exec --no-startup-id picom --config ~/.config/picom/picom.conf
 
 #############################################
 # autostart applications/services on login: #
@@ -450,25 +426,58 @@ for_window [class="urxvt"] border pixel 1
 # color settings for bar and windows #
 ######################################
 
-# Define colors variables:
-set $darkbluetrans	#08052be6
-set $darkblue		#08052b
-set $lightblue		#5294e2
-set $urgentred		#e53935
-set $white		#ffffff
-set $black		#000000
-set $purple		#e345ff
-set $darkgrey		#383c4a
-set $grey		#b0b5bd
-set $mediumgrey		#8b8b8b
-set $yellowbrown	#e1b700
+# Colors
+set $blue_000         #19202A
+set $blue_100         #1B222D
+set $blue_200         #1D2530
+set $blue_300         #273241
+set $blue_400         #313F52
+set $blue_600         #5E81AC
+set $blue_700         #81A1C1
+set $blue_800         #B1BDD3
+
+set $gray_800         #e5e9f0
+set $gray_900         #eceff4
+
+set $cyan_500         #70a9a1 
+
+set $green_500        #79B791
+set $green_600        #ABD1B5
+
+set $red_500          #BF616A
+set $red_600          #D57780
+set $red_700          #DE878F
+
+set $pink_400         #E85B7A
+set $pink_500         #E44675
+
+set $orange_400       #D08F70
+
+set $yellow_400       #EBCB8B
+
+set $purple_400       #B48EAD
+set $purple_600       #DD99BB
+
+set $darkbluetrans	#5E81ACe6
+set $darkblue		    #81A1C1
+set $lightblue		  $blue_800
+set $urgentred		  #E44675
+set $green          #79B791
+set $white		      #ffffff
+set $black		      #000000
+set $purple		      #DD99BB
+set $darkgrey		    #273241
+set $grey		        #646A76
+set $mediumgrey		  #646A76
+set $yellowbrown	  #EBCB8B
+
 
 # define colors for windows:
-#class		        	border		bground		text		indicator	child_border
-client.focused		    $lightblue	$darkblue	$white		$purple		$mediumgrey
-client.unfocused	    $darkblue	$darkblue	$grey		$purple		$darkgrey
-client.focused_inactive	$darkblue	$darkblue	$grey		$purple		$black
-client.urgent		    $urgentred	$urgentred	$white		$purple		$yellowbrown
+#class		        	        border		       bground		     text		     indicator	    child_border
+client.focused		          $blue_300	       $blue_200	     $gray_800	 $purple_600		$blue_400
+client.unfocused	          $blue_200	       $blue_200	     $gray_800	 $purple_400		$blue_200
+client.focused_inactive	    $blue_200	       $blue_200	     $blue_700	 $purple_400		$blue_200
+client.urgent		            $pink_500	       $pink_400	     $gray_900	 $purple_400		$purple_600
 
 ############################################
 # bar settings (input comes from i3blocks) #
@@ -480,60 +489,27 @@ bar {
 		font pango: Noto Sans Regular 10
 		status_command i3blocks -c ~/.config/i3/i3blocks.conf
 	    	position bottom
-#	    	i3bar_command i3bar --transparency
+	    	# i3bar_command i3bar --transparency
 # it could be that you have no primary display set: set one (xrandr --output <output> --primary)
 # reference: https://i3wm.org/docs/userguide.html#_tray_output
 		    tray_output primary
-		    tray_padding 0
+		    tray_padding 5px
 
-# When strip_workspace_numbers is set to yes,
-# any workspace that has a name of the form
-# “[n][:][NAME]” will display only the name.
 strip_workspace_numbers yes
-##strip_workspace_name no
+# strip_workspace_name no
 
-		    colors {
-		    separator          $purple
-		    background         $darkgrey
-		    statusline         $white
-#                          		border 		        bg		txt		indicator
-		focused_workspace	$mediumgrey	   	$grey		$darkgrey	$purple
-		active_workspace	$lightblue      	$mediumgrey	$darkgrey	$purple
-		inactive_workspace	$darkgrey   		$darkgrey	$grey		$purple
-		urgent_workspace	$urgentred	    	$urgentred	$white		$purple
+    colors {
+		    separator          $purple_600
+		    background         $blue_200
+		    statusline         $gray_800
+
+#   class                  border 		       bg		           text		     indicator
+		focused_workspace	     $blue_400	   	   $blue_400		   $gray_800	 $blue_400
+		active_workspace	     $cyan_400      	 $cyan_400       $gray_800	 $pink_500
+		inactive_workspace	   $blue_300   		   $blue_300	     $blue_700	 $green_500
+		urgent_workspace	     $red_500	    	   $red_500	       $gray_900	 $red_500
 	}
 }
-
-# you can add different bars for multidisplay setups on each display:
-# set output HDMI-0 to the display you want the bar, --transparency can be set.
-# Transparency needs rgba color codes to be used where the last two letters are the transparency factor see here:
-# https://gist.github.com/lopspower/03fb1cc0ac9f32ef38f4
-# #08052be6 --> e6=90%
-
-# bar {
-#	font pango: Noto Sans Regular 10
-#	status_command i3blocks -c ~/.config/i3/i3blocks-2.conf
-#	i3bar_command i3bar --transparency
-#	output HDMI-0
-#	position bottom
-#
-# When strip_workspace_numbers is set to yes,
-# any workspace that has a name of the form
-# “[n][:][NAME]” will display only the name.
-#strip_workspace_numbers yes
-##strip_workspace_name no
-#
-#	colors {
-#		separator          $purple
-#		background         $darkbluetrans
-#        	statusline         $white
-#					border		bg		txt		indicator
-#		focused_workspace	$lighterblue	$lighterblue	$darkblue	$purple
-#		active_workspace	$lightdblue	$lightdblue	$darkblue	$purple
-#		inactive_workspace	$darkblue	$darkblue	$lightdblue	$purple
-#		urgent_workspace	$urgentred	$urgentred	$white		$purple
-#	}
-#}
 
 #####################################
 # Application menu handled by rofi: #
@@ -560,3 +536,4 @@ bindsym $mod+t exec rofi -show window \
 #exec --no-startup-id greenclip daemon>/dev/null
 #bindsym $mod+c exec --no-startup-id rofi -modi "clipboard:greenclip print" -show clipboard \
 #		-config ~/.config/rofi/rofidmenu.rasi
+

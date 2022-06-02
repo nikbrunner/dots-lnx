@@ -7,6 +7,7 @@ alias df='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias vim="nvim"
 
 alias pacfile="pacman -Qqe > package_list.txt"
+alias lg="lazygit"
 
 source /usr/share/nvm/init-nvm.sh
 
